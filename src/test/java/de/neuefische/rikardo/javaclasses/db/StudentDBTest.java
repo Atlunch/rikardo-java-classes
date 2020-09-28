@@ -30,9 +30,10 @@ class StudentDBTest {
 
         studentsDB.add(student02);
 
-        int afterLength = studentsDB.getStudents().length;
+        Student[] studentResult = studentsDB.list();
+        Student[] studentexpected = {new Student("Felix",18, 1,"felix@gmail.com"),new Student("Tom",20, 2,"tom@gmail.com")};
 
-        assertEquals(2,afterLength);
+        assertArrayEquals(studentexpected,studentResult);
 
 
     }
