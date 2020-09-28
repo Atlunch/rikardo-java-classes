@@ -10,7 +10,7 @@ class StudentTest {
     @Test
     void checkName() {
         //GIVEN
-        Student student = new Student("Felix",18,"felix@gmail.com");
+        Student student = new Student("Felix",18, 1,"felix@gmail.com");
         //WHEN
         boolean isNotEmpty = student.getName().isEmpty();
         //THEN
@@ -20,7 +20,7 @@ class StudentTest {
     @Test
     void checkAge() {
         //GIVEN
-        Student student = new Student("Felix",18,"felix@gmail.com");
+        Student student = new Student("Felix",18, 1,"felix@gmail.com");
         //WHEN
         int age = student.getAge();
         //THEN
@@ -31,7 +31,7 @@ class StudentTest {
     @Test
     void checkEmail() {
         //GIVEN
-        Student student = new Student("Felix",18,"felix@gmail.com");
+        Student student = new Student("Felix",18, 1,"felix@gmail.com");
         //WHEN
         //String email = student.getEmail();
         //THEN
@@ -40,11 +40,23 @@ class StudentTest {
 
     @Test
     void testToString() {
-        Student student = new Student("Felix",18,"felix@gmail.com");
+        Student student = new Student("Felix",18,1,"felix@gmail.com");
 
         String result = student.toString();
 
-        assertEquals("Name: Felix, Alter: 18, E-Mail: felix@gmail.com", result);
+        assertEquals("Name: Felix, Alter: 18, Id: 1, E-Mail: felix@gmail.com", result);
     }
+
+    @Test
+    void testEquals() {
+        Student student1 = new Student("Felix",18, 1,"felix@gmail.com");
+        Student student2 = new Student("Felix",18,1,"felix@gmail.com");
+
+        boolean result = student1.equals(student2);
+
+        assertTrue(result);
+
+    }
+
 
 }
